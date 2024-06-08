@@ -1,0 +1,77 @@
+apply plugin: "jacoco"
+
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+def excludeList = [
+        ]
+
+test {
+    jacoco {
+        excludes = excludeList
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir("${buildDir}/jacoco")
+    }
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it, excludes: excludeList)
+        })
+    }
+}
+
+jacocoTestCoverageVerification {
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it, excludes: excludeList)
+        })
+    }
+    violationRules {
+        rule {
+            enabled = true
+            element = "BUNDLE"
+            limit {
+                counter = "INSTRUCTION"
+                value = "COVEREDRATIO"
+                minimum = 0.70
+            }
+        }
+        rule {
+            enabled = true
+            element = "BUNDLE"
+            limit {
+                counter = "BRANCH"
+                value = "COVEREDRATIO"
+                minimum = 0.67
+            }
+        }
+        rule {
+            enabled = false
+            element = "BUNDLE"
+            limit {
+                counter = "METHOD"
+                value = "COVEREDRATIO"
+                minimum = 0.95
+            }
+        }
+        rule {
+            enabled = false
+            element = "BUNDLE"
+            limit {
+                counter = "CLASS"
+                value = "COVEREDRATIO"
+                minimum = 0.95
+            }
+        }
+    }
+}
+
+test.finalizedBy(jacocoTestReport)
+jacocoTestCoverageVerification.dependsOn jacocoTestReport
+check.dependsOn jacocoTestCoverageVerification

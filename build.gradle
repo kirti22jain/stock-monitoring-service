@@ -1,0 +1,235 @@
+import com.commercehub.gradle.plugin.avro.GenerateAvroJavaTask
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import javax.xml.transform.TransformerFactory
+import javax.xml.transform.stream.StreamResult
+import javax.xml.transform.stream.StreamSource
+
+buildscript {
+    dependencies {
+        //plugin needed to generate POJO from Avro schema
+        classpath("com.commercehub.gradle.plugin:gradle-avro-plugin:0.16.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+    }
+}
+plugins {
+    id "org.springframework.boot" version "${springbootVersion}"
+    id "org.jetbrains.kotlin.jvm" version "${kotlinVersion}"
+    id "org.jetbrains.kotlin.plugin.spring" version "${kotlinVersion}"
+    id "org.jetbrains.kotlin.plugin.serialization" version "${kotlinVersion}"
+    id "com.jfrog.artifactory" version "5.2.0"
+    id "io.gitlab.arturbosch.detekt" version "1.23.6"
+    id "jacoco"
+}
+
+apply plugin: "io.spring.dependency-management"
+apply plugin: "kotlin-spring"
+apply plugin: "org.springframework.boot"
+apply plugin: "application"
+apply plugin: "com.commercehub.gradle.plugin.avro"
+apply plugin: "org.jetbrains.kotlin.plugin.serialization"
+apply plugin: "idea"
+
+apply from: "$rootDir/gradle/detekt.gradle"
+apply from: "$rootDir/gradle/jacoco.gradle"
+apply from: "$rootDir/gradle/ktlint.gradle"
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+def versions = [
+        // open
+        kotlinxCoroutines           : "1.8.1",
+        springRetry                 : "2.0.5",
+        log4j2Version               : "2.23.1",
+        disruptor                   : "3.4.4",
+        lettuce                     : "6.3.2.RELEASE",
+        kafka                       : "3.3.2",
+        guava                       : "33.2.0-jre",
+        jackson                     : "2.17.1",
+        json                        : "20240303",
+        jsonPath                    : "2.9.0",
+        kotlinxSerializationJson    : "1.6.3",
+        jexl3                       : "3.3",
+        datadogTraceApi             : "1.34.0",
+        modelmapper                 : "3.2.0",
+        swaggerAnnotations          : "2.2.20",
+        springdocOpenApiUi          : "1.8.0",
+        avro                        : "1.11.3",
+        okhttp                      : "4.12.0",
+        snakeyaml                   : "2.2",
+        protobuf                    : "1.62.2",
+        snappyJava                  : "1.1.10.5",
+        velocityEngine              : "2.3",
+        byteBuddy                   : "1.14.15",
+        okio                        : "3.9.0",
+        clojure                     : "1.12.0-alpha9",
+        jedisMockLibrary            : "1.1.0",
+        statsdClient                : "4.3.0",
+
+        // eg
+        templateServiceClient       : "2.0.4",
+        cpceEventClientLibrary      : "7.0.0",
+        cpceConversationClient      : "8.0.0",
+        resourceManagerClient       : "6.0.3",
+        egSmartFlowEngine           : "4.8.0",
+        epcDyff                     : "9.5.1",
+        mozartDyff                  : "6.0.0",
+        commonAuthUtils             : "1.15.0",
+        visualizerEventsLibrary     : "5.2.0",
+        gcoCommons                  : "6.0.1",
+]
+
+configurations {
+    configureEach {
+        exclude group: 'org.slf4j', module: 'slf4j-simple'
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+        exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
+    }
+}
+
+dependencies {
+    // kotlin
+    implementation platform("org.jetbrains.kotlin:kotlin-bom:${kotlinVersion}")
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinxCoroutines}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:${versions.kotlinxCoroutines}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${versions.kotlinxCoroutines}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-reactor:${versions.kotlinxCoroutines}"
+
+    // spring
+    implementation "org.springframework.boot:spring-boot-starter:${springbootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-actuator:${springbootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-webflux:${springbootVersion}"
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springbootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-undertow:${springbootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-aop:${springbootVersion}"
+    implementation "org.springframework.retry:spring-retry:${versions.springRetry}"
+
+    // logging/tracing/metrics
+    implementation "com.datadoghq:java-dogstatsd-client:${versions.statsdClient}"
+    implementation "com.datadoghq:dd-trace-api:${versions.datadogTraceApi}"
+    implementation "org.apache.logging.log4j:log4j-slf4j-impl:${versions.log4j2Version}"
+    implementation "org.apache.logging.log4j:log4j-api:${versions.log4j2Version}"
+    implementation "org.apache.logging.log4j:log4j-core:${versions.log4j2Version}"
+    implementation "org.apache.logging.log4j:log4j-layout-template-json:${versions.log4j2Version}"
+    implementation "com.lmax:disruptor:${versions.disruptor}"
+
+    // Ser/De-ser/Mapping/Json
+    implementation "com.google.guava:guava:${versions.guava}"
+    implementation "com.jayway.jsonpath:json-path:${versions.jsonPath}"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:${versions.jackson}"
+    implementation "com.fasterxml.jackson.core:jackson-core:${versions.jackson}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}"
+    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${versions.jackson}"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:${versions.jackson}"
+    implementation "org.json:json:${versions.json}"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:${versions.kotlinxSerializationJson}"
+    implementation "org.apache.commons:commons-jexl3:${versions.jexl3}"
+    implementation "org.modelmapper:modelmapper:${versions.modelmapper}"
+
+    //Redis
+    implementation "io.lettuce:lettuce-core:${versions.lettuce}"
+
+    // Swagger
+    implementation "io.swagger.core.v3:swagger-annotations:${versions.swaggerAnnotations}"
+    implementation "org.springdoc:springdoc-openapi-ui:${versions.springdocOpenApiUi}"
+
+    //Kafka
+    implementation "org.apache.kafka:kafka-streams-test-utils:${versions.kafka}"
+    implementation "org.apache.kafka:kafka-streams:${versions.kafka}"
+    implementation "org.apache.kafka:kafka-clients:${versions.kafka}"
+
+    // Testing
+    implementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation("com.squareup.okhttp3:mockwebserver:${versions.okhttp}") {
+        exclude group: "com.squareup.okio", module: "okio-jvm"
+    }
+    testImplementation("io.mockk:mockk:1.12.4")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+    testImplementation("org.junit.platform:junit-platform-commons:1.8.2")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
+    testImplementation("io.projectreactor:reactor-test:3.4.18")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:${springbootVersion}")
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.kotlinxCoroutines}"
+
+    // others
+    implementation("com.squareup.okio:okio") { version { strictly "${versions.okio}" } }
+    implementation("com.squareup.okio:okio-jvm") { version { strictly "${versions.okio}" } }
+    implementation "net.bytebuddy:byte-buddy:${versions.byteBuddy}"
+    implementation "org.apache.velocity:velocity-engine-core:${versions.velocityEngine}"
+    implementation "org.apache.avro:avro:${versions.avro}"
+    implementation("org.yaml:snakeyaml") { version { strictly "${versions.snakeyaml}" } }
+    implementation("io.grpc:grpc-protobuf") { version { strictly "${versions.protobuf}" } }
+    implementation("org.xerial.snappy:snappy-java") { version { strictly "${versions.snappyJava}" } }
+    implementation("org.clojure:clojure:${versions.clojure}")
+}
+
+sourceSets.test {
+    kotlin.srcDirs("src/test/unitTests")
+    kotlin.srcDirs("src/test/functional-tests")
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+// Converts tests reports into required format on backstage
+tasks.register('transformXml') {
+    dependsOn build
+    doLast {
+        def xsltFile = file('test-stylesheet.xsl')
+        def inputDir = fileTree('build/test-results') {
+            exclude 'binary'
+        }
+        def outputDir = file('build/transformed-report')
+
+        outputDir.mkdirs()
+
+        inputDir.each { xmlFile ->
+            if (xmlFile.name.endsWith(".xml")) {
+                def outputFileName = xmlFile.name.replaceAll(".xml", "-transformed.xml")
+                def outputFile = new File(outputDir, outputFileName)
+                TransformerFactory transformerFactory = TransformerFactory.newInstance()
+                javax.xml.transform.Transformer transformer = transformerFactory.newTransformer(new StreamSource(xsltFile))
+                transformer.transform(new StreamSource(xmlFile), new StreamResult(outputFile))
+
+            }
+        }
+    }
+}
+
+tasks.register('generateAvro', GenerateAvroJavaTask) {
+    source("src/main/resources/avsc")
+    outputDir = file("src/main/generated")
+
+}
+
+avro {
+    fieldVisibility = "PRIVATE"
+    stringType = "CharSequence"
+}
+
+generateAvroJava {
+    source(rootDir)
+    inputs.files tasks.generateAvro
+    inputs.files tasks.processResources
+    dependsOn(processTestResources)
+}
+
+compileKotlin.dependsOn generateAvro
+compileKotlin.source(generateAvro.outputs)
+
+compileKotlin {
+    compilerOptions {
+        freeCompilerArgs = freeCompilerArgs.get() + ["-Xjsr305=strict"]
+        jvmTarget = JvmTarget.JVM_21
+    }
+    dependsOn {
+        generateAvro
+    }
+}
