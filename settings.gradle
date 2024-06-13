@@ -5,4 +5,4 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'intelligent-agent-service'
+rootProject.name = 'stock-monitoring-service'

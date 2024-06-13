@@ -1,0 +1,11 @@
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /
+
+stocks_api:
+  base_url: "https://www.alphavantage.co"
+
+webhookProxy:
+  timeout: 10000
