@@ -37,9 +37,9 @@ class StockRepository(
     }
 
     suspend fun getStock(stockSymbol: String): Stock {
-        val stock = stocksCollection.find(Document("symbol", stockSymbol), Stock::class.java).first()
+        val stock = stocksCollection.find(Document(Stock::symbol.name, stockSymbol)).first()
         logger.info("Stock=$stockSymbol: $stock")
-        return stock
+        return gson.fromJson(gson.toJson(stock), Stock::class.java)
     }
 
     suspend fun getAll(): List<Stock> {
@@ -51,13 +51,18 @@ class StockRepository(
     }
 
     suspend fun updateStock(updatedStockValue: Stock) {
-        val query = Filters.eq(Stock::symbol.toString(), updatedStockValue.symbol)
+        val query = Filters.eq(Stock::symbol.name, updatedStockValue.symbol)
         val updates = Updates.combine(
-            Updates.set(Stock::stockData.toString(), updatedStockValue.stockData),
-            Updates.set(Stock::lastUpdatedAt.toString(), updatedStockValue.lastUpdatedAt),
+            Updates.set("stockData.volume", updatedStockValue.stockData.volume),
+            Updates.set("stockData.price", updatedStockValue.stockData.price),
+            Updates.set(Stock::lastUpdatedAt.name, updatedStockValue.lastUpdatedAt),
         )
         val result = stocksCollection.updateOne(query, updates)
         logger.info("Updates=$result for stock=${updatedStockValue.symbol}")
+    }
+
+    suspend fun delete(symbol: String) {
+        // TODO delete
     }
 
     private fun connectToStocksCollection(): MongoCollection<Document> {

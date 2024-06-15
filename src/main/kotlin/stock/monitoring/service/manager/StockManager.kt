@@ -1,4 +1,4 @@
-package stock.monitoring.service.service
+package stock.monitoring.service.manager
 
 import org.springframework.stereotype.Service
 import stock.monitoring.service.model.Stock
@@ -7,7 +7,7 @@ import stock.monitoring.service.proxy.StocksApiProxy
 import stock.monitoring.service.respository.StockRepository
 
 @Service
-class StockService(
+class StockManager(
     private val stockRepository: StockRepository,
     private val stocksApiProxy: StocksApiProxy,
 ) {
@@ -46,5 +46,9 @@ class StockService(
     suspend fun updateStock(stock: Stock, updatedStockData: StockData, updatedTimeStamp: String) {
         val updatedStock = stock.copy(stockData = updatedStockData, lastUpdatedAt = updatedTimeStamp)
         stockRepository.updateStock(updatedStock)
+    }
+
+    suspend fun getStock(stockSymbol: String): Stock {
+        return stockRepository.getStock(stockSymbol)
     }
 }

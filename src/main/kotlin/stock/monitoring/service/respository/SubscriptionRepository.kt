@@ -12,8 +12,6 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import stock.monitoring.service.DBConstants
 import stock.monitoring.service.model.Subscription
-import java.time.Duration
-import java.time.Instant
 
 @Component
 class SubscriptionRepository(
@@ -25,18 +23,22 @@ class SubscriptionRepository(
     private val database: MongoDatabase = mongoClient.getDatabase(DBConstants.STOCKS_DATABASE)
     private val subscriptionCollection by lazy { connectToSubscriptionCollection() }
 
-    suspend fun getEligibleSubscriptions(symbol: String): List<Subscription> {
+    suspend fun getStockSubscriptions(symbol: String): List<Subscription> {
         return runCatching {
-            val endTime = Instant.now().minus(Duration.ofHours(1))
             val query = Filters.and(
-                Filters.eq(Subscription::symbol.toString(), symbol),
-                Filters.lte(Subscription::lastNotifiedAt.toString(), endTime.toString()),
+                Filters.eq(Subscription::symbol.name, symbol),
+//                Filters.lte(Subscription::lastNotifiedAt.name, formattedEasternTime), // TODO: Fix this
             )
             val subscriptionDocuments = subscriptionCollection.find(query).toList()
+
+            if (subscriptionDocuments.isEmpty()) {
+                throw Exception("No subscriptions found for symbol=$symbol")
+            }
             val subscriptions = mutableListOf<Subscription>()
             subscriptionDocuments.forEach {
                 subscriptions.add(gson.fromJson(gson.toJson(it), Subscription::class.java))
             }
+
             logger.info("Eligible subscriptions: $subscriptions")
             subscriptions
         }.onFailure {
@@ -57,11 +59,11 @@ class SubscriptionRepository(
         }
     }
 
-    suspend fun updateSubscription(subscription: Subscription) {
-        val query = Filters.eq(Subscription::symbol.toString(), subscription.symbol)
+    suspend fun update(subscription: Subscription) {
+        val query = Filters.eq(Subscription::symbol.name, subscription.symbol)
         val updates = Updates.combine(
-            Updates.set(subscription::lastNotifiedPrice.toString(), subscription.lastNotifiedPrice),
-            Updates.set(subscription::lastNotifiedAt.toString(), subscription.lastNotifiedAt),
+            Updates.set(subscription::lastNotifiedPrice.name, subscription.lastNotifiedPrice),
+            Updates.set(subscription::lastNotifiedAt.name, subscription.lastNotifiedAt),
         )
         val result = subscriptionCollection.updateOne(query, updates)
         logger.info("Updates=$result for subscription=$subscription")

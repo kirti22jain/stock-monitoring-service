@@ -16,6 +16,7 @@ object Default {
     const val SERVER_ERROR = 500
     const val LAST_NAME = "lastName"
     const val EMAIL = "email"
+    const val EMAIL_INTERVAL_IN_HOURS: Long = 1
 }
 
 object ProxyConstants {
