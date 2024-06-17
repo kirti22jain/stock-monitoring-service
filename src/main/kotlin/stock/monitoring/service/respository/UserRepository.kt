@@ -7,6 +7,7 @@ import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import kotlinx.coroutines.flow.first
 import org.bson.Document
 import org.slf4j.LoggerFactory
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Repository
 import stock.monitoring.service.DBConstants
 import stock.monitoring.service.model.User
@@ -14,6 +15,7 @@ import stock.monitoring.service.model.User
 @Repository
 class UserRepository(
     mongoClient: MongoClient,
+//    private val bCryptPasswordEncoder: BCryptPasswordEncoder,
 ) {
 
     private val gson = Gson()
@@ -23,6 +25,7 @@ class UserRepository(
     private val usersCollection by lazy { connectToUsersCollection() }
 
     suspend fun insert(user: User) {
+//        user.password = bCryptPasswordEncoder.encode(user.password)
         val doc = Document(gson.fromJson<Map<String, Any>>(gson.toJson(user), MutableMap::class.java))
         val result = usersCollection.insertOne(doc)
         logger.info("User=${user.userId} inserted successfully, id=${result.insertedId}")

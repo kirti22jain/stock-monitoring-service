@@ -1,0 +1,80 @@
+[
+  {
+    "metadata": {
+      "id": "80b224c2-896b-4ac4-95ee-0b4d373c666d",
+      "resourceType": "participant",
+      "schemaUri": "/schemas/cp.Participant_v1",
+      "container": {
+        "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/conversations/fcc8cc23-17d4-4715-b0aa-e256fcd34479/"
+      },
+      "audit": {
+        "createdOn": "2023-11-01T20:16:56.434230Z",
+        "createdBy": "SERVICE : cpce-seva-conversation-service",
+        "updatedOn": "2023-11-01T20:17:04.604930Z",
+        "updatedBy": "SERVICE : cpce-seva-conversation-service"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/conversations/fcc8cc23-17d4-4715-b0aa-e256fcd34479/participants/80b224c2-896b-4ac4-95ee-0b4d373c666d"
+    },
+    "id": "80b224c2-896b-4ac4-95ee-0b4d373c666d",
+    "user": {
+      "preferredName": "Anonymous User",
+      "role": "/roleassignments/4ccad87a-3635-4d3c-b0d5-cc046923fe82",
+      "userIds": {},
+      "attributes": {
+        "subscriptionId": "VAC2_CUSTOMER_GUEST_33bea4ef-93c2-4166-b297-2b5e07b35235_a0c41f1d-1309-427a-a1eb-746dbb6d9cba_61c8b7e0-d539-4ba4-8f61-cff4ad51702d_gcoint",
+        "clientSessionId": "61c8b7e0-d539-4ba4-8f61-cff4ad51702d",
+        "identificationDetails": "{\"identityState\": \"ANONYMOUS\", \"identifyingAttributes\": [], \"author\": \"VA\", \"workflow\": \"SELF_SERVICE\", \"method\": \"null\", \"metadata\": \"IDENTITY_NOT_FOUND\", \"identifiers\": null}"
+      },
+      "languageId": "en_US"
+    },
+    "channels": [
+      {
+        "channelId": "vac",
+        "active": true,
+        "state": "JOINED",
+        "sendMessageReceipt": true,
+        "presence": {
+          "isAvailable": true
+        }
+      }
+    ],
+    "initiator": true,
+    "participantType": "Traveler",
+    "cpUserId": "61c8b7e0-d539-4ba4-8f61-cff4ad51702d"
+  },
+  {
+    "metadata": {
+      "id": "fda5b5fd-0c62-48b3-b7ad-11ef1eaf0989",
+      "resourceType": "participant",
+      "schemaUri": "/schemas/cp.Participant_v1",
+      "container": {
+        "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/conversations/fcc8cc23-17d4-4715-b0aa-e256fcd34479/"
+      },
+      "audit": {
+        "createdOn": "2023-11-01T20:16:56.509305Z",
+        "createdBy": "SERVICE : cpce-seva-conversation-service",
+        "updatedOn": "2023-11-01T20:16:56.509309Z",
+        "updatedBy": "SERVICE : cpce-seva-conversation-service"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/conversations/fcc8cc23-17d4-4715-b0aa-e256fcd34479/participants/fda5b5fd-0c62-48b3-b7ad-11ef1eaf0989"
+    },
+    "id": "fda5b5fd-0c62-48b3-b7ad-11ef1eaf0989",
+    "user": {
+      "preferredName": "Virtual Agent",
+      "avatarUrl": "https://s3-us-west-1.amazonaws.com/csp.assets/icons/Expedia_Chat_Logo.svg",
+      "role": "null"
+    },
+    "channels": [
+      {
+        "channelId": "VA",
+        "active": true,
+        "state": "JOINED",
+        "sendMessageReceipt": false
+      }
+    ],
+    "initiator": false,
+    "participantType": "TravelerVA"
+  }
+]

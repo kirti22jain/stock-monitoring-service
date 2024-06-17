@@ -1,14 +1,23 @@
 package stock.monitoring.service.manager
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.bson.types.ObjectId
 import org.slf4j.LoggerFactory
+import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 import stock.monitoring.service.Default.EMAIL_INTERVAL_IN_HOURS
+import stock.monitoring.service.Default.FIXED_DELAY
+import stock.monitoring.service.Default.INITIAL_DELAY
 import stock.monitoring.service.model.Subscription
 import stock.monitoring.service.model.request.SubscriptionRequest
 import stock.monitoring.service.respository.SubscriptionRepository
 import stock.monitoring.service.service.NotificationService
-import java.time.*
+import java.time.Duration
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 @Component
@@ -33,37 +42,41 @@ class SubscriptionManager(
         }
     }
 
-    suspend fun checkAndNotify() {
-        val stocks = stockManager.getAllStocks()
+    @Scheduled(fixedRate = FIXED_DELAY, initialDelay = INITIAL_DELAY)
+    fun checkAndNotify() {
+        CoroutineScope(Dispatchers.Default).launch {
+            logger.info("Checking and notifying users")
+            val stocks = stockManager.getAllStocks()
 
-        stocks.forEach { stock ->
-            val latestStockData = stockManager.getLatestStockData(stock.symbol)
-            val stockData = if (latestStockData.second.price != stock.stockData.price) {
-                // update stock data
-                stockManager.updateStock(stock, latestStockData.second, latestStockData.first)
-                logger.info("Stock data updated for ${stock.symbol}")
-                latestStockData.second
-            } else {
-                stock.stockData
-            }
-
-            // get user-subscriptions for the stock
-            val subscriptions: List<Subscription> = subscriptionRepository.getStockSubscriptions(stock.symbol)
-                .filter { subscription ->
-                    subscription.symbol == stock.symbol && subscription.lastNotifiedPrice != stockData.price
-                }.filter { subscription ->
-                    subscription.lastNotifiedAt?.let { isOneHourAgo(it, stock.lastUpdatedAt) } ?: false
-                }.map { subscription ->
-                    subscription.copy(lastNotifiedPrice = stockData.price, lastNotifiedAt = stock.lastUpdatedAt)
+            stocks.forEach { stock ->
+                val latestStockData = stockManager.getLatestStockData(stock.symbol)
+                val stockData = if (latestStockData.second.price != stock.stockData.price) {
+                    // update stock data
+                    stockManager.updateStock(stock, latestStockData.second, latestStockData.first)
+                    logger.info("Stock data updated for ${stock.symbol}")
+                    latestStockData.second
+                } else {
+                    stock.stockData
                 }
 
-            val userSubscriptionMap = subscriptions.groupBy { subscription -> subscription.userId }
+                // get user-subscriptions for the stock
+                val subscriptions: List<Subscription> = subscriptionRepository.getStockSubscriptions(stock.symbol)
+                    .filter { subscription ->
+                        subscription.symbol == stock.symbol && subscription.lastNotifiedPrice != stockData.price
+                    }.filter { subscription ->
+                        subscription.lastNotifiedAt?.let { isOneHourAgo(it, stock.lastUpdatedAt) } ?: false
+                    }.map { subscription ->
+                        subscription.copy(lastNotifiedPrice = stockData.price, lastNotifiedAt = stock.lastUpdatedAt)
+                    }
 
-            // update subscription last notified price and timestamp
-            subscriptions.forEach { subscription -> subscriptionRepository.update(subscription) }
+                val userSubscriptionMap = subscriptions.groupBy { subscription -> subscription.userId }
 
-            // notify users
-            notificationService.sendNotification(userSubscriptionMap)
+                // update subscription last notified price and timestamp
+                subscriptions.forEach { subscription -> subscriptionRepository.update(subscription) }
+
+                // notify users
+                notificationService.sendNotification(userSubscriptionMap)
+            }
         }
     }
 

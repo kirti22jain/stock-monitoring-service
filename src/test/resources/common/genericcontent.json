@@ -1,0 +1,48 @@
+{
+  "messages": [
+    {
+      "text": "Hello, this is a generic message!",
+      "template": {
+        "templateName": "WelcomeTemplate",
+        "templateId": 123
+      },
+      "data": {
+        "key1": "value1",
+        "key2": 42
+      },
+      "params": {
+        "param1": "paramValue1",
+        "param2": "paramValue2"
+      }
+    },
+    {
+      "text": "Another generic message here!",
+      "template": null,
+      "data": null,
+      "params": null
+    }
+  ],
+  "messageText": "Legacy Message Text",
+  "messageTemplates": [
+    {
+      "templateName": "LegacyTemplate1",
+      "templateId": 456
+    },
+    {
+      "templateName": "LegacyTemplate2",
+      "templateId": 789
+    }
+  ],
+  "messageData": {
+    "legacyKey1": "legacyValue1",
+    "legacyKey2": true
+  },
+  "additionalParams": {
+    "paramA": "valueA",
+    "paramB": "valueB"
+  },
+  "context": {
+    "dataA": "valueA",
+    "dataB": "valueB"
+  }
+}

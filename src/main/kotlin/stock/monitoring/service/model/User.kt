@@ -19,4 +19,10 @@ data class User(
 
     @JsonProperty("email")
     val email: String,
+
+    @JsonProperty("userName")
+    val userName: String,
+
+    @JsonProperty("password")
+    var password: String,
 )

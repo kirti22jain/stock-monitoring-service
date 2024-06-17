@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "3f5a8279-954d-4414-ae07-4dbb7383b1de",
+    "resourceType": "llmvaapiconfig",
+    "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAApiConfig",
+    "version": "1.45",
+    "container": {
+      "resourceUri": "/"
+    },
+    "audit": {
+      "createdOn": "2023-09-22T11:54:27.808225Z",
+      "createdBy": "SERVICE : 2031ec1lcs5182vkd7hko5aael",
+      "updatedOn": "2024-06-06T07:16:38.296402Z",
+      "updatedBy": "SERVICE : 2031ec1lcs5182vkd7hko5aael"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/llmvaapiconfigs/3f5a8279-954d-4414-ae07-4dbb7383b1de?version=1.45",
+    "hierarchicalKey": "",
+    "resourceSourceUri": "/llmvaapiconfigs/3f5a8279-954d-4414-ae07-4dbb7383b1de?version=1.44"
+  },
+  "id": "3f5a8279-954d-4414-ae07-4dbb7383b1de",
+  "altId": "flight_search",
+  "endpointUrl": "http://eg-journey-service-sandbox.rcp.data.test.exp-aws.net/journeys/FLIGHT_SEARCH_TOOL/execute",
+  "requestMethod": "POST",
+  "timeoutInMilliSeconds": 20000,
+  "maxRetries": 0,
+  "authenticationConfigUri": "/authenticationConfigs/f7995824-cd40-4ba2-93b7-abadc9892ffb",
+  "headers": {
+    "client-id": "EG_EGRECS_DEV",
+    "siteId": "1",
+    "count": "5"
+  },
+  "requestParams": [
+    {
+      "name": "destination",
+      "required": true,
+      "description": "3 digit nearest most popular Airport code of destination city or location provided by user. If user provided a country or a place where there are multiple airports, use airport code of most poupular one. For example - If user says Europe, take it as LHR",
+      "type": "string"
+    },
+    {
+      "name": "origin",
+      "required": true,
+      "description": "3 digit nearest most popular Airport code of origin city or location provided by user. If user provided a country or a place where there are multiple airports, use airport code of most poupular one. For example - If user says Europe, take it as LHR",
+      "type": "string"
+    },
+    {
+      "name": "departure_date",
+      "required": false,
+      "description": "Future Departure Date provided by user in Format YYYY-MM-DD.",
+      "type": "string"
+    },
+    {
+      "name": "return_date",
+      "required": false,
+      "description": "Future Return Date provided by user in Format YYYY-MM-DD.",
+      "type": "string"
+    },
+    {
+      "name": "filters",
+      "required": true,
+      "description": "These are filters",
+      "type": "object",
+      "properties": [
+        {
+          "name": "category",
+          "required": false,
+          "description": "Categories for filtering results.",
+          "type": "array",
+          "itemsType": "string"
+        }
+      ]
+    },
+    {
+      "name": "cabinClass",
+      "required": true,
+      "description": "Array of Cabin Class",
+      "type": "array",
+      "itemsType": "string"
+    }
+  ]
+}

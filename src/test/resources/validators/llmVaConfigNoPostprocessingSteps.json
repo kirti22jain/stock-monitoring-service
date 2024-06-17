@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "41bc4831-d9b4-4442-a945-80eaeb425f40",
+    "resourceType": "llmvaconfig",
+    "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAConfig",
+    "version": "1.2",
+    "container": {
+      "resourceUri": "/"
+    },
+    "audit": {
+      "createdOn": "2023-10-26T10:07:03.775696Z",
+      "createdBy": "SERVICE : 2031ec1lcs5182vkd7hko5aael",
+      "updatedOn": "2023-11-01T09:10:56.968668Z",
+      "updatedBy": "SERVICE : 2031ec1lcs5182vkd7hko5aael"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/llmvaconfigs/41bc4831-d9b4-4442-a945-80eaeb425f40?version=1.2",
+    "hierarchicalKey": "type",
+    "hierarchicalSearchValue": "TravelerVA",
+    "resourceSourceUri": "/llmvaconfigs/41bc4831-d9b4-4442-a945-80eaeb425f40?version=1.1"
+  },
+  "id": "41bc4831-d9b4-4442-a945-80eaeb425f40",
+  "name": "LLM_CONFIG_FOR_TRAVELER_VA",
+  "altId": "LLM_CONFIG_FOR_TRAVELER_VA",
+  "description": "LLM Agent for Traveler VA",
+  "team": "icemlgurgaon@expediagroup.com",
+  "type": "TravelerVA",
+  "typeIndicatingEnabled": true,
+  "typingIndicatorEnabled": true,
+  "preProcessing": [
+    {
+      "name": "guardrail_user_utterance",
+      "type": "GUARDRAIL",
+      "resourceUri": "/llmvaguardrailconfigs/3c3604b3-2367-45b1-9017-b494a58383c3",
+      "continueOnError": true
+    }
+  ],
+  "postProcessing": [
+  ],
+  "toolConfigs": [
+    {
+      "name": "flight_search",
+      "toolConfigUri": "/llmvatoolconfigs/2f0e91a8-cc41-47fc-86e0-e0c136ac0b91"
+    },
+    {
+      "name": "hotel_or_activity_recommendations",
+      "toolConfigUri": "/llmvatoolconfigs/18aba7c4-f7a1-443c-b9c0-4f7b38634746"
+    },
+    {
+      "name": "flight_price_forecast",
+      "toolConfigUri": "/llmvatoolconfigs/9af7068d-b5dd-4c74-966a-8077a14cc0e5"
+    }
+  ],
+  "context": {
+    "systemPromptUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_SYSTEM_PROMPT",
+    "welcomeMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_MSG",
+    "errorMessageUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_DEFAULT_ERROR_MESSAGE",
+    "welcomeBackMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_BACK_MSG"
+  },
+  "modelConfigUri": "/llmvamodelconfigs/CHATGPT_35_GENAI_PROXY_16K"
+}

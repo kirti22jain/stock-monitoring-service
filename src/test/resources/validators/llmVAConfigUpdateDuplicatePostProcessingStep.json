@@ -1,0 +1,100 @@
+{
+  "current": {
+    "id": "c80d04f4-91fa-4ad4-8c50-cc659554f048",
+    "name": "LLM_AGENT_FOR_TRAVELER_VA",
+    "altId": "LLM_AGENT_FOR_TRAVELER_VA",
+    "description": "LLM Agent for Traveler VA",
+    "team": "icemlgurgaon@expediagroup.com",
+    "type": "TravelerVA",
+    "toolConfigs": [
+      {
+        "name": "flight_search",
+        "toolConfigUri": "/llmvatoolconfigs/2f0e91a8-cc41-47fc-86e0-e0c136ac0b91"
+      },
+      {
+        "name": "hotel_or_activity_recommendations",
+        "toolConfigUri": "/llmvatoolconfigs/18aba7c4-f7a1-443c-b9c0-4f7b38634746"
+      },
+      {
+        "name": "flight_price_forecast",
+        "toolConfigUri": "/llmvatoolconfigs/9af7068d-b5dd-4c74-966a-8077a14cc0e5"
+      }
+    ],
+    "context": {
+      "systemPromptUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_SYSTEM_PROMPT",
+      "welcomeMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_MSG",
+      "errorMessageUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_DEFAULT_ERROR_MESSAGE",
+      "welcomeBackMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_BACK_MSG"
+    },
+    "modelConfigUri": "/llmvamodelconfigs/CHATGPT_35_GENAI_PROXY_16K"
+  },
+  "proposed": {
+    "metadata": {
+      "id": "9fdcf3d8-dd63-419e-b286-1f13b25c380c",
+      "resourceType": "llmvaconfig",
+      "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAConfig",
+      "version": "1.6",
+      "container": {
+        "resourceUri": "/"
+      },
+      "audit": {
+        "createdOn": "2023-09-28T17:29:19.701103Z",
+        "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+        "updatedOn": "2023-10-10T07:39:44.553874Z",
+        "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/llmvaconfigs/9fdcf3d8-dd63-419e-b286-1f13b25c380c?version=1.6",
+      "hierarchicalKey": "type",
+      "hierarchicalSearchValue": "TravelerVA",
+      "resourceSourceUri": "/llmvaconfigs/9fdcf3d8-dd63-419e-b286-1f13b25c380c?version=1.5"
+    },
+    "id": "9fdcf3d8-dd63-419e-b286-1f13b25c380c",
+    "name": "LLM_AGENT_FOR_TRAVELER_VA",
+    "altId": "LLM_AGENT_FOR_TRAVELER_VA",
+    "description": "LLM Agent for Traveler VA",
+    "team": "icemlgurgaon@expediagroup.com",
+    "type": "TravelerVA",
+    "postProcessing": [
+      {
+        "name": "hotelAndActivitiesRecommendations",
+        "type": "API",
+        "tools": [
+          "hotel_or_activity_recommendations"
+        ],
+        "resourceUri": "/llmvaapiconfigs/ecc1355b-614a-4eb1-946d-605101c21ee4",
+        "continueOnError": true
+      },
+      {
+        "name": "hotelAndActivitiesRecommendations",
+        "type": "API",
+        "tools": [
+          "hotel_or_activity_recommendations"
+        ],
+        "resourceUri": "/llmvaapiconfigs/ecc1355b-614a-4eb1-946d-605101c21ee4",
+        "continueOnError": true
+      }
+    ],
+    "toolConfigs": [
+      {
+        "name": "flight_search",
+        "toolConfigUri": "/llmvatoolconfigs/318c6595-71af-47f5-b0be-f4ccb7b1b5c9"
+      },
+      {
+        "name": "hotel_or_activity_recommendations",
+        "toolConfigUri": "/llmvatoolconfigs/bbb0174a-3764-43f1-b8a0-ec7236d20629"
+      },
+      {
+        "name": "flight_price_forecast",
+        "toolConfigUri": "/llmvatoolconfigs/08b67cd0-6e58-48aa-a6d9-e7e6ee3b687d"
+      }
+    ],
+    "context": {
+      "systemPromptUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_SYSTEM_PROMPT",
+      "welcomeMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_MSG",
+      "errorMessageUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_DEFAULT_ERROR_MESSAGE",
+      "welcomeBackMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_BACK_MSG"
+    },
+    "modelConfigUri": "/llmvamodelconfigs/CHATGPT_35_GENAI_PROXY_16K"
+  }
+}

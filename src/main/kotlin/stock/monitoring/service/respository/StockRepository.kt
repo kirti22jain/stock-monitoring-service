@@ -63,6 +63,7 @@ class StockRepository(
 
     suspend fun delete(symbol: String) {
         // TODO delete
+        println(symbol)
     }
 
     private fun connectToStocksCollection(): MongoCollection<Document> {

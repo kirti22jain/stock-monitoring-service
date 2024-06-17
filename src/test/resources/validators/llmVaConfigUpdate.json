@@ -1,0 +1,60 @@
+{
+  "current": {
+    "id": "c80d04f4-91fa-4ad4-8c50-cc659554f048",
+    "name": "LLM_AGENT_FOR_TRAVELER_VA",
+    "altId": "LLM_AGENT_FOR_TRAVELER_VA",
+    "description": "LLM Agent for Traveler VA",
+    "team": "icemlgurgaon@expediagroup.com",
+    "type": "TravelerVA",
+    "toolConfigs": [
+      {
+        "name": "flight_search",
+        "toolConfigUri": "/llmvatoolconfigs/2f0e91a8-cc41-47fc-86e0-e0c136ac0b91"
+      },
+      {
+        "name": "hotel_or_activity_recommendations",
+        "toolConfigUri": "/llmvatoolconfigs/18aba7c4-f7a1-443c-b9c0-4f7b38634746"
+      },
+      {
+        "name": "flight_price_forecast",
+        "toolConfigUri": "/llmvatoolconfigs/9af7068d-b5dd-4c74-966a-8077a14cc0e5"
+      }
+    ],
+    "context": {
+      "systemPromptUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_SYSTEM_PROMPT",
+      "welcomeMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_MSG",
+      "errorMessageUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_DEFAULT_ERROR_MESSAGE",
+      "welcomeBackMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_BACK_MSG"
+    },
+    "modelConfigUri": "/llmvamodelconfigs/CHATGPT_35_GENAI_PROXY_16K"
+  },
+  "proposed": {
+    "id": "c80d04f4-91fa-4ad4-8c50-cc659554f048",
+    "name": "LLM_AGENT_FOR_TRAVELER_VA",
+    "altId": "LLM_AGENT_FOR_TRAVELER_VA",
+    "description": "LLM Agent for Traveler VA",
+    "team": "icemlgurgaon@expediagroup.com",
+    "type": "TravelerVA",
+    "toolConfigs": [
+      {
+        "name": "flight_search",
+        "toolConfigUri": "/llmvatoolconfigs/2f0e91a8-cc41-47fc-86e0-e0c136ac0b91"
+      },
+      {
+        "name": "hotel_or_activity_recommendations",
+        "toolConfigUri": "/llmvatoolconfigs/18aba7c4-f7a1-443c-b9c0-4f7b38634746"
+      },
+      {
+        "name": "flight_price_forecast",
+        "toolConfigUri": "/llmvatoolconfigs/9af7068d-b5dd-4c74-966a-8077a14cc0e5"
+      }
+    ],
+    "context": {
+      "systemPromptUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_SYSTEM_PROMPT",
+      "welcomeMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_MSG",
+      "errorMessageUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_DEFAULT_ERROR_MESSAGE",
+      "welcomeBackMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_BACK_MSG"
+    },
+    "modelConfigUri": "/llmvamodelconfigs/CHATGPT_35_GENAI_PROXY_16K"
+  }
+}

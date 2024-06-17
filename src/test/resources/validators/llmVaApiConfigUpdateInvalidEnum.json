@@ -1,0 +1,120 @@
+{
+  "current": {
+    "metadata": {
+      "id": "adc9c6b3-aa18-414f-891d-9eca20b1824c",
+      "resourceType": "llmvaapiconfig",
+      "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAApiConfig",
+      "version": "1.34",
+      "container": {
+        "resourceUri": "/"
+      },
+      "audit": {
+        "createdOn": "2023-09-28T11:18:23.482823Z",
+        "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+        "updatedOn": "2023-10-25T07:43:56.852027Z",
+        "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/llmvaapiconfigs/adc9c6b3-aa18-414f-891d-9eca20b1824c?version=1.34",
+      "hierarchicalKey": "",
+      "resourceSourceUri": "/llmvaapiconfigs/adc9c6b3-aa18-414f-891d-9eca20b1824c?version=1.33"
+    },
+    "id": "adc9c6b3-aa18-414f-891d-9eca20b1824c",
+    "altId": "flight_search",
+    "endpointUrl": "https://eg-journey-service-sandbox.rcp.us-west-2.data.test.exp-aws.net/journeys/FLIGHT_SEARCH_TOOL/execute",
+    "requestMethod": "POST",
+    "timeoutInMilliSeconds": 25000,
+    "maxRetries": 1,
+    "authenticationConfigUri": "/authenticationConfigs/82dca026-a70d-4edf-a6b3-a857bd6ff8e8",
+    "headers": {
+      "client-id": "EG_EGRECS_DEV",
+      "siteId": "1",
+      "count": "5"
+    },
+    "requestParams": [
+      {
+        "name": "destination",
+        "required": true,
+        "description": "3 digit nearest most popular Airport code of destination city or location",
+        "type": "string"
+      },
+      {
+        "name": "origin",
+        "required": true,
+        "description": "3 digit nearest most popular Airport code of origin city or location",
+        "type": "string"
+      },
+      {
+        "name": "departure_date",
+        "required": false,
+        "description": "Future Departure Date provided by user in Format YYYY-MM-DD",
+        "type": "string"
+      },
+      {
+        "name": "return_date",
+        "required": false,
+        "description": "Future Return Date provided by user in Format YYYY-MM-DD",
+        "type": "string"
+      }
+    ]
+  },
+  "proposed": {
+    "metadata": {
+      "id": "adc9c6b3-aa18-414f-891d-9eca20b1824c",
+      "resourceType": "llmvaapiconfig",
+      "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAApiConfig",
+      "version": "1.34",
+      "container": {
+        "resourceUri": "/"
+      },
+      "audit": {
+        "createdOn": "2023-09-28T11:18:23.482823Z",
+        "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+        "updatedOn": "2023-10-25T07:43:56.852027Z",
+        "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/llmvaapiconfigs/adc9c6b3-aa18-414f-891d-9eca20b1824c?version=1.34",
+      "hierarchicalKey": "",
+      "resourceSourceUri": "/llmvaapiconfigs/adc9c6b3-aa18-414f-891d-9eca20b1824c?version=1.33"
+    },
+    "id": "adc9c6b3-aa18-414f-891d-9eca20b1824c",
+    "altId": "flight_search",
+    "endpointUrl": "https://eg-journey-service-sandbox.rcp.us-west-2.data.test.exp-aws.net/journeys/FLIGHT_SEARCH_TOOL/execute",
+    "requestMethod": "POST",
+    "timeoutInMilliSeconds": 25000,
+    "maxRetries": 1,
+    "authenticationConfigUri": "/authenticationConfigs/82dca026-a70d-4edf-a6b3-a857bd6ff8e8",
+    "headers": {
+      "client-id": "EG_EGRECS_DEV",
+      "siteId": "1",
+      "count": "5"
+    },
+    "requestParams": [
+      {
+        "name": "destination",
+        "required": true,
+        "description": "3 digit nearest most popular Airport code of destination city or location",
+        "type": "string"
+      },
+      {
+        "name": "origin",
+        "required": true,
+        "description": "3 digit nearest most popular Airport code of origin city or location",
+        "type": "string"
+      },
+      {
+        "name": "departure_date",
+        "required": false,
+        "description": "Future Departure Date provided by user in Format YYYY-MM-DD",
+        "type": "string"
+      },
+      {
+        "name": "invalid_enum",
+        "required": false,
+        "description": "Future Return Date provided by user in Format YYYY-MM-DD",
+        "type": "enum"
+      }
+    ]
+  }
+}

@@ -27,13 +27,8 @@ class SubscriptionRepository(
         return runCatching {
             val query = Filters.and(
                 Filters.eq(Subscription::symbol.name, symbol),
-//                Filters.lte(Subscription::lastNotifiedAt.name, formattedEasternTime), // TODO: Fix this
             )
             val subscriptionDocuments = subscriptionCollection.find(query).toList()
-
-            if (subscriptionDocuments.isEmpty()) {
-                throw Exception("No subscriptions found for symbol=$symbol")
-            }
             val subscriptions = mutableListOf<Subscription>()
             subscriptionDocuments.forEach {
                 subscriptions.add(gson.fromJson(gson.toJson(it), Subscription::class.java))

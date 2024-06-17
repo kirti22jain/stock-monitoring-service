@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "id": "1903bb09-3b37-4d5e-9820-910e2675b981",
+    "resourceType": "llmvaguardrailconfig",
+    "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAGuardRailConfig",
+    "version": "1.0",
+    "container": {
+      "resourceUri": "/"
+    },
+    "audit": {
+      "createdOn": "2023-09-28T12:18:18.909903Z",
+      "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+      "updatedOn": "2023-09-28T12:18:18.909908Z",
+      "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/llmvaguardrailconfigs/1903bb09-3b37-4d5e-9820-910e2675b981?version=1.0"
+  },
+  "id": "1903bb09-3b37-4d5e-9820-910e2675b981",
+  "altId": "LLM_VA_GUARDRAIL_CONFIGS",
+  "expressions": [
+    {
+      "type": "STRING_MATCH",
+      "expression": "AirBnb|booking.com|expedia|hotels.com|kayak|orbitz|priceline|travelocity",
+      "responseContextUri": "/llmvamessagetemplates/LLM_VA_GUARDRAIL_HANDLING"
+    },
+    {
+      "type": "REGEX_MATCH",
+      "expression": "(utterance.matches(\"\\d{3}-\\d{2}-\\d{4}\"))",
+      "responseContextUri": "/llmvamessagetemplates/LLM_VA_GUARDRAIL_HANDLING"
+    }
+  ]
+}
