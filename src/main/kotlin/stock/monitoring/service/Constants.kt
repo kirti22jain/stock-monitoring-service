@@ -32,4 +32,5 @@ object ProxyConstants {
     const val STOCKS_API_PATH = "/query"
     const val STOCKS_API_KEY = "ZGloeU1kSUNl" // This is a dummy key
     const val STOCKS_INTERVAL = "15min"
+    const val TIME_SERIES_INTERVAL_NAME = "Time Series (15min)"
 }
