@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse
 
 @Component
 @Profile("!it")
+@Suppress("ReturnCount")
 class HttpRequestInterceptor : AsyncHandlerInterceptor {
 
     private lateinit var protectedEndPoints: Set<String>
@@ -42,9 +43,9 @@ class HttpRequestInterceptor : AsyncHandlerInterceptor {
     ): Boolean {
         if (!isPreflightRequest(request)) {
             val authorization = request.getHeader(AUTHORIZATION)
-            when {
-                !isProtectedEndpoint(request) -> return true
-                isAuthorized(authorization) -> return true
+            return when {
+                !isProtectedEndpoint(request) -> true
+                isAuthorized(authorization) -> true
                 else -> {
                     logger.error(
                         "Error=Not authorized to access url={}",
@@ -53,6 +54,7 @@ class HttpRequestInterceptor : AsyncHandlerInterceptor {
                     response.writer.write("{\"message\": \"Forbidden\"}")
                     response.contentType = APPLICATION_JSON.type
                     response.status = HttpServletResponse.SC_FORBIDDEN
+                    false
                 }
             }
         }

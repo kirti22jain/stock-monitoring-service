@@ -7,7 +7,6 @@ import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import kotlinx.coroutines.flow.first
 import org.bson.Document
 import org.slf4j.LoggerFactory
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Repository
 import stock.monitoring.service.DBConstants
 import stock.monitoring.service.model.User

@@ -2,8 +2,12 @@ package stock.monitoring.service.controller
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
-import org.springframework.web.bind.annotation.*
-import stock.monitoring.service.Default.SHA_SECRET_KEY // ktlint-disable no-wildcard-imports
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
+import stock.monitoring.service.Default.SHA_SECRET_KEY
 import stock.monitoring.service.Default.TOKEN_EXPIRATION_IN_MILLIS
 import stock.monitoring.service.Default.TOKEN_PREFIX
 import stock.monitoring.service.manager.UserManager
@@ -31,6 +35,7 @@ class UserController(
      */
     @PostMapping("/v1/login")
     fun login(@RequestParam("userName") username: String, @RequestParam("password") pwd: String): String {
+        println(pwd)
         return getJWTToken(username)
     }
 

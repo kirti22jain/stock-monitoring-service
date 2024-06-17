@@ -8,7 +8,6 @@ import com.mongodb.connection.ConnectionPoolSettings
 import com.mongodb.kotlin.client.coroutine.MongoClient
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import stock.monitoring.service.DBConstants.CONNECTION_STRING
 import stock.monitoring.service.DBConstants.MAX_DB_POOL_SIZE
 import stock.monitoring.service.DBConstants.MIN_DB_POOL_SIZE
