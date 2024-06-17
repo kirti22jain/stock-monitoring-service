@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "id": "9303b27a-28cc-4d6a-83be-f8642df9eaa5",
+    "resourceType": "conversationcontext",
+    "schemaUri": "/schemas/com.expedia.llm.v1.ConversationContext",
+    "container": {
+      "resourceUri": "/partners/eb11b92f-bdeb-4f5f-b97e-4cde5b2f9dc3/conversations/eb020039-9c71-45c1-874e-c1b96eaa62fc/"
+    },
+    "audit": {
+      "createdOn": "2023-10-19T16:59:44.205401Z",
+      "createdBy": "SERVICE : 2b03iv0b03krcd027pr9lph3cc",
+      "updatedOn": "2023-10-19T16:59:44.205405Z",
+      "updatedBy": "SERVICE : 2b03iv0b03krcd027pr9lph3cc"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/partners/eb11b92f-bdeb-4f5f-b97e-4cde5b2f9dc3/conversations/eb020039-9c71-45c1-874e-c1b96eaa62fc/conversationcontexts/9303b27a-28cc-4d6a-83be-f8642df9eaa5"
+  },
+  "id": "9303b27a-28cc-4d6a-83be-f8642df9eaa5",
+  "messages": [
+    {
+      "name": "null",
+      "role": "system",
+      "content": "/llmvamessagetemplates/LLM_TRAVELER_VA_SYSTEM_PROMPT"
+    }
+  ],
+  "toolExecutionDetails": []
+}

@@ -1,0 +1,17 @@
+{
+  "errorCode": null,
+  "errorDescription": null,
+  "response": {
+    "journeyExecutionErrorCode": null,
+    "messages": [
+      {
+        "params": {},
+        "text": "For roundtrip economy flights from Boston to Miami departing on Jan 26 and returning on Jan 28 the current lowest price is $426.21. This is the best price we expect to see between now and takeoff.\n\nPrices are approximate and will be finalized when you book. To find or book your flight, head to the flights section of the Expedia app.\n\nIf you are not ready to book yet, you can setup a price tracker once you perform a search for the flight using the Expedia app.",
+        "template": null,
+        "data": null
+      }
+    ],
+    "journeyExecutionErrorMessage": null
+  },
+  "executionId": "74ca0325-e684-4ff5-b34c-72961e5e57f7"
+}

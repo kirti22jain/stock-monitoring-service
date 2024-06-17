@@ -1,0 +1,68 @@
+{
+  "current":{
+    "metadata": {
+      "id": "1903bb09-3b37-4d5e-9820-910e2675b981",
+      "resourceType": "llmvaguardrailconfig",
+      "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAGuardRailConfig",
+      "version": "1.0",
+      "container": {
+        "resourceUri": "/"
+      },
+      "audit": {
+        "createdOn": "2023-09-28T12:18:18.909903Z",
+        "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+        "updatedOn": "2023-09-28T12:18:18.909908Z",
+        "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/llmvaguardrailconfigs/1903bb09-3b37-4d5e-9820-910e2675b981?version=1.0"
+    },
+    "id": "1903bb09-3b37-4d5e-9820-910e2675b981",
+    "altId": "LLM_VA_GUARDRAIL_CONFIGS",
+    "expressions": [
+      {
+        "type": "STRING_MATCH",
+        "expression": "(utterance.contains('airbnb') or utterance.contains('bookings.com') or utterance.contains('kayak ') or utterance.contains('kayak.') or utterance.contains('hotelscombined') or utterance.contains('priceline') or utterance.contains('getaroom') or utterance.contains('hostelworld') or utterance.contains('agoda') or utterance.contains('hopper') or utterance.contains('tripadvisor') or utterance.contains('flipkey') or utterance.contains('going.com') or utterance.contains('scott\\'s cheap flights') or utterance.contains('scottscheapflights') or utterance.contains('skyscanner') or utterance.contains('zipcar') or utterance.contains('uber') or utterance.contains('lyft') or utterance.contains('ridealto') or utterance.contains('gig car share') or utterance.contains('gigcarshare') or utterance.contains('opentable') or utterance.contains('amex gbt') or utterance.contains('amexglobalbusinesstravel') or utterance.contains('flight centre') or utterance.contains('flightcentre') or utterance.contains('cwt') or utterance.contains('travel leaders corp') or utterance.contains('travelleaderscorp') or utterance.contains('bcd travel') or utterance.contains('bcdtravel') or utterance.contains('corporate travel group') or utterance.contains('corporate travel management') or utterance.contains('travelctm') or utterance.contains('american express travel') or utterance.contains('amextravel') or utterance.contains('chase ultimate rewards'))",
+        "responseContextUri": "/llmvamessagetemplates/LLM_VA_GUARDRAIL_HANDLING"
+      },
+      {
+        "type": "REGEX_MATCH",
+        "expression": "(utterance.matches(\"\\d{3}-\\d{2}-\\d{4}\"))",
+        "responseContextUri": "/llmvamessagetemplates/LLM_VA_GUARDRAIL_HANDLING"
+      }
+    ]
+  },
+  "proposed": {
+    "metadata": {
+      "id": "1903bb09-3b37-4d5e-9820-910e2675b981",
+      "resourceType": "llmvaguardrailconfig",
+      "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAGuardRailConfig",
+      "version": "1.0",
+      "container": {
+        "resourceUri": "/"
+      },
+      "audit": {
+        "createdOn": "2023-09-28T12:18:18.909903Z",
+        "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+        "updatedOn": "2023-09-28T12:18:18.909908Z",
+        "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/llmvaguardrailconfigs/1903bb09-3b37-4d5e-9820-910e2675b981?version=1.0"
+    },
+    "id": "1903bb09-3b37-4d5e-9820-910e2675b981",
+    "altId": "LLM_VA_GUARDRAIL_CONFIGS",
+    "expressions": [
+      {
+        "type": "STRING_MATCH",
+        "expression": "(utterance.contains('airbnb') or utterance.contains('bookings.com') or utterance.contains('kayak ') or utterance.contains('kayak.') or utterance.contains('hotelscombined') or utterance.contains('priceline') or utterance.contains('getaroom') or utterance.contains('hostelworld') or utterance.contains('agoda') or utterance.contains('hopper') or utterance.contains('tripadvisor') or utterance.contains('flipkey') or utterance.contains('going.com') or utterance.contains('scott\\'s cheap flights') or utterance.contains('scottscheapflights') or utterance.contains('skyscanner') or utterance.contains('zipcar') or utterance.contains('uber') or utterance.contains('lyft') or utterance.contains('ridealto') or utterance.contains('gig car share') or utterance.contains('gigcarshare') or utterance.contains('opentable') or utterance.contains('amex gbt') or utterance.contains('amexglobalbusinesstravel') or utterance.contains('flight centre') or utterance.contains('flightcentre') or utterance.contains('cwt') or utterance.contains('travel leaders corp') or utterance.contains('travelleaderscorp') or utterance.contains('bcd travel') or utterance.contains('bcdtravel') or utterance.contains('corporate travel group') or utterance.contains('corporate travel management') or utterance.contains('travelctm') or utterance.contains('american express travel') or utterance.contains('amextravel') or utterance.contains('chase ultimate rewards'))",
+        "responseContextUri": "/llmvamessagetemplates/LLM_VA_GUARDRAIL_HANDLING"
+      },
+      {
+        "type": "REGEX_MATCH",
+        "expression": "(utterance.matches(\"\\d{3}-\\d{2}-\\d{4}\"))",
+        "responseContextUri": "/llmvamessagetemplates/LLM_VA_GUARDRAIL_HANDLING"
+      }
+    ]
+  }
+}

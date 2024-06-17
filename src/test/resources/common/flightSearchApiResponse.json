@@ -1,0 +1,17 @@
+{
+  "errorCode": null,
+  "errorDescription": null,
+  "response": {
+    "journeyExecutionErrorCode": null,
+    "messages": [
+      {
+        "params": {},
+        "text": "Here are some options I found for flights from Austin to Seattle. These flights reflect economy seats and roundtrip pricing for one traveler on Mar 22 returning on Mar 26.\n\nItinerary 1:\nOutbound Airline(s): United\nStops: 1\nReturn Airline(s): United\nStops: 1\nPrice: $283.21\n\nItinerary 2:\nOutbound Airline(s): United\nStops: 1\nReturn Airline(s): United\nStops: 1\nPrice: $306.86\n\nItinerary 3:\nOutbound Airline(s): United\nStops: 1\nReturn Airline(s): United\nStops: 1\nPrice: $318.68\n\nPrices are approximate and will be finalized when you book. \n\nIf you do not need to book right away, you can create a flight tracker to alert you to the best times to fly to Seattle. \n\nTo book or to find other flights, head to the flights section of the Expedia app.",
+        "template": null,
+        "data": null
+      }
+    ],
+    "journeyExecutionErrorMessage": null
+  },
+  "executionId": "74ca0325-e684-4ff5-b34c-72961e5e57f7"
+}

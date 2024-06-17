@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "41bc4831-d9b4-4442-a945-80eaeb425f40",
+    "resourceType": "llmvaconfig",
+    "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAConfig",
+    "version": "1.2",
+    "container": {
+      "resourceUri": "/"
+    },
+    "audit": {
+      "createdOn": "2023-10-26T10:07:03.775696Z",
+      "createdBy": "SERVICE : 2031ec1lcs5182vkd7hko5aael",
+      "updatedOn": "2023-11-01T09:10:56.968668Z",
+      "updatedBy": "SERVICE : 2031ec1lcs5182vkd7hko5aael"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/llmvaconfigs/41bc4831-d9b4-4442-a945-80eaeb425f40?version=1.2",
+    "hierarchicalKey": "type",
+    "hierarchicalSearchValue": "TravelerVA",
+    "resourceSourceUri": "/llmvaconfigs/41bc4831-d9b4-4442-a945-80eaeb425f40?version=1.1"
+  },
+  "id": "41bc4831-d9b4-4442-a945-80eaeb425f40",
+  "name": "LLM_CONFIG_FOR_TRAVELER_VA",
+  "altId": "LLM_CONFIG_FOR_TRAVELER_VA",
+  "description": "LLM Agent for Traveler VA",
+  "team": "icemlgurgaon@expediagroup.com",
+  "type": "TravelerVA",
+  "typeIndicatingEnabled": true,
+  "typingIndicatorEnabled": true,
+  "conversationStart": {
+    "type": "API",
+    "skipWelcome": false,
+    "resourceUri": "mock_uri"
+  },
+  "preProcessing": [
+    {
+      "name": "guardrail_user_utterance",
+      "type": "GUARDRAIL",
+      "resourceUri": "/llmvaguardrailconfigs/3c3604b3-2367-45b1-9017-b494a58383c3",
+      "continueOnError": true
+    }
+  ],
+  "postProcessing": [
+    {
+      "name": "guardrail_chatgpt_response",
+      "type": "GUARDRAIL",
+      "resourceUri": "/llmvaguardrailconfigs/LLM_RESPONSE_GUARDRAILS",
+      "continueOnError": true
+    },
+    {
+      "name": "hotelAndActivitiesRecommendations",
+      "type": "API",
+      "tools": [
+        "hotel_or_activity_recommendations"
+      ],
+      "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/businesssegments/a0c41f1d-1309-427a-a1eb-746dbb6d9cba/channelorigins/1b31c950-b24e-4dbe-bb64-e3e471635eef/llmvaapiconfigs/89932bf5-f94f-4e91-a390-a19227e53cc0",
+      "continueOnError": true
+    },
+    {
+      "name": "flight_search",
+      "type": "API",
+      "tools": [
+        "flight_search"
+      ],
+      "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/businesssegments/a0c41f1d-1309-427a-a1eb-746dbb6d9cba/channelorigins/1b31c950-b24e-4dbe-bb64-e3e471635eef/llmvaapiconfigs/89932bf5-f94f-4e91-a390-a19227e53cc0",
+      "continueOnError": true
+    }
+  ],
+  "context": {
+    "systemPromptUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_SYSTEM_PROMPT",
+    "welcomeMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_MSG",
+    "errorMessageUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_DEFAULT_ERROR_MESSAGE",
+    "welcomeBackMessageUri": "/llmvamessagetemplates/LLM_VA_ORCHESTRATOR_WELCOME_BACK_MSG"
+  },
+  "modelConfigUri": "/llmvamodelconfigs/CHATGPT_35_GENAI_PROXY_16K",
+  "configuration": {
+    "typingIndicatorEnabled": true
+  }
+}

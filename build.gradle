@@ -41,45 +41,45 @@ java {
 
 def versions = [
         // open
-        kotlinxCoroutines           : "1.8.1",
-        springRetry                 : "2.0.5",
-        log4j2Version               : "2.23.1",
-        disruptor                   : "3.4.4",
-        lettuce                     : "6.3.2.RELEASE",
-        kafka                       : "3.3.2",
-        guava                       : "33.2.0-jre",
-        jackson                     : "2.17.1",
-        json                        : "20240303",
-        jsonPath                    : "2.9.0",
-        kotlinxSerializationJson    : "1.6.3",
-        jexl3                       : "3.3",
-        datadogTraceApi             : "1.34.0",
-        modelmapper                 : "3.2.0",
-        swaggerAnnotations          : "2.2.20",
-        springdocOpenApiUi          : "1.8.0",
-        avro                        : "1.11.3",
-        okhttp                      : "4.12.0",
-        snakeyaml                   : "2.2",
-        protobuf                    : "1.62.2",
-        snappyJava                  : "1.1.10.5",
-        velocityEngine              : "2.3",
-        byteBuddy                   : "1.14.15",
-        okio                        : "3.9.0",
-        clojure                     : "1.12.0-alpha9",
-        jedisMockLibrary            : "1.1.0",
-        statsdClient                : "4.3.0",
+        kotlinxCoroutines       : "1.8.1",
+        springRetry             : "2.0.5",
+        log4j2Version           : "2.23.1",
+        disruptor               : "3.4.4",
+        lettuce                 : "6.3.2.RELEASE",
+        kafka                   : "3.3.2",
+        guava                   : "33.2.0-jre",
+        jackson                 : "2.17.1",
+        json                    : "20240303",
+        jsonPath                : "2.9.0",
+        kotlinxSerializationJson: "1.6.3",
+        jexl3                   : "3.3",
+        datadogTraceApi         : "1.34.0",
+        modelmapper             : "3.2.0",
+        swaggerAnnotations      : "2.2.20",
+        springdocOpenApiUi      : "1.8.0",
+        avro                    : "1.11.3",
+        okhttp                  : "4.12.0",
+        snakeyaml               : "2.2",
+        protobuf                : "1.62.2",
+        snappyJava              : "1.1.10.5",
+        velocityEngine          : "2.3",
+        byteBuddy               : "1.14.15",
+        okio                    : "3.9.0",
+        clojure                 : "1.12.0-alpha9",
+        jedisMockLibrary        : "1.1.0",
+        statsdClient            : "4.3.0",
 
         // eg
-        templateServiceClient       : "2.0.4",
-        cpceEventClientLibrary      : "7.0.0",
-        cpceConversationClient      : "8.0.0",
-        resourceManagerClient       : "6.0.3",
-        egSmartFlowEngine           : "4.8.0",
-        epcDyff                     : "9.5.1",
-        mozartDyff                  : "6.0.0",
-        commonAuthUtils             : "1.15.0",
-        visualizerEventsLibrary     : "5.2.0",
-        gcoCommons                  : "6.0.1",
+        templateServiceClient   : "2.0.4",
+        cpceEventClientLibrary  : "7.0.0",
+        cpceConversationClient  : "8.0.0",
+        resourceManagerClient   : "6.0.3",
+        egSmartFlowEngine       : "4.8.0",
+        epcDyff                 : "9.5.1",
+        mozartDyff              : "6.0.0",
+        commonAuthUtils         : "1.15.0",
+        visualizerEventsLibrary : "5.2.0",
+        gcoCommons              : "6.0.1",
 ]
 
 configurations {
@@ -107,6 +107,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-aop:${springbootVersion}"
     implementation "org.springframework.retry:spring-retry:${versions.springRetry}"
 
+
     // logging/tracing/metrics
     implementation "com.datadoghq:java-dogstatsd-client:${versions.statsdClient}"
     implementation "com.datadoghq:dd-trace-api:${versions.datadogTraceApi}"
@@ -129,17 +130,9 @@ dependencies {
     implementation "org.apache.commons:commons-jexl3:${versions.jexl3}"
     implementation "org.modelmapper:modelmapper:${versions.modelmapper}"
 
-    //Redis
-    implementation "io.lettuce:lettuce-core:${versions.lettuce}"
-
     // Swagger
     implementation "io.swagger.core.v3:swagger-annotations:${versions.swaggerAnnotations}"
     implementation "org.springdoc:springdoc-openapi-ui:${versions.springdocOpenApiUi}"
-
-    //Kafka
-    implementation "org.apache.kafka:kafka-streams-test-utils:${versions.kafka}"
-    implementation "org.apache.kafka:kafka-streams:${versions.kafka}"
-    implementation "org.apache.kafka:kafka-clients:${versions.kafka}"
 
     // Testing
     implementation 'org.junit.jupiter:junit-jupiter:5.9.2'
@@ -167,6 +160,12 @@ dependencies {
     implementation("io.grpc:grpc-protobuf") { version { strictly "${versions.protobuf}" } }
     implementation("org.xerial.snappy:snappy-java") { version { strictly "${versions.snappyJava}" } }
     implementation("org.clojure:clojure:${versions.clojure}")
+    implementation("org.mongodb:mongodb-driver-kotlin-coroutine:5.1.0")
+    implementation("org.mongodb:bson-kotlinx:5.1.0")
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation "com.auth0:java-jwt:4.4.0"
+
+
 }
 
 sourceSets.test {

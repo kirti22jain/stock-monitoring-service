@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "bbb0174a-3764-43f1-b8a0-ec7236d20629",
+    "resourceType": "llmvatoolconfig",
+    "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAToolConfig",
+    "version": "1.12",
+    "container": {
+      "resourceUri": "/"
+    },
+    "audit": {
+      "createdOn": "2023-10-03T07:10:42.889549Z",
+      "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+      "updatedOn": "2023-10-19T06:32:17.898341Z",
+      "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/llmvatoolconfigs/bbb0174a-3764-43f1-b8a0-ec7236d20629?version=1.12",
+    "hierarchicalKey": "",
+    "resourceSourceUri": "/llmvatoolconfigs/bbb0174a-3764-43f1-b8a0-ec7236d20629?version=1.11"
+  },
+  "id": "bbb0174a-3764-43f1-b8a0-ec7236d20629",
+  "altId": "hotel_or_activity_recommendations",
+  "team": "icemlgurgaon@expediagroup.com",
+  "description": "Recommends hotels and/or activities(things to do) names and descriptions when user explicity asks for hotels and/or activity(things to do search or recommendations",
+  "type": "LLM",
+  "preProcessing":[
+    {
+      "name": "hotelAndActivitiesRecommendations",
+      "type": "API",
+      "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/businesssegments/a0c41f1d-1309-427a-a1eb-746dbb6d9cba/channelorigins/1b31c950-b24e-4dbe-bb64-e3e471635eef/llmvaapiconfigs/89932bf5-f94f-4e91-a390-a19227e53cc0",
+      "continueOnError": true
+    },
+    {
+      "name": "GuardrailLogic",
+      "type": "GUARDRAIL",
+      "resourceUri": "/llmvamessagetemplates/resource_id",
+      "continueOnError": true
+    }
+  ],
+  "postProcessing":[
+    {
+      "name": "hotelAndActivitiesRecommendations",
+      "type": "API",
+      "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/businesssegments/a0c41f1d-1309-427a-a1eb-746dbb6d9cba/channelorigins/1b31c950-b24e-4dbe-bb64-e3e471635eef/llmvaapiconfigs/89932bf5-f94f-4e91-a390-a19227e53cc0",
+      "continueOnError": true
+    },
+    {
+      "name": "GuardrailLogic",
+      "type": "GUARDRAIL",
+      "resourceUri": "/llmvamessagetemplates/resource_id",
+      "continueOnError": true
+    }
+  ],
+  "llmDetails": {
+    "promptUri": "/llmvamessagetemplates/bb452cdf-5965-4be8-b62e-4ff4260e0daa",
+    "useConversationHistory": true
+  },
+  "errorHandlingUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_PROXY_FAILURE_ERROR_MESSAGE"
+}

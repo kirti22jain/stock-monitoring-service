@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "id": "fa8978c4-0e74-4d65-b7bb-3e856a340ecc",
+    "resourceType": "channeloriginlocator",
+    "schemaUri": "/schemas/cp.ChannelOriginLocator_v1",
+    "version": "1.2770",
+    "container": {
+      "resourceUri": "/"
+    },
+    "audit": {
+      "createdOn": "2021-08-25T12:05:21.065Z",
+      "createdBy": "test : test",
+      "updatedOn": "2023-10-26T09:16:57.046629Z",
+      "updatedBy": "SERVICE : 7ael5kqpr5kaacoik45610n81o"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/channeloriginlocators/fa8978c4-0e74-4d65-b7bb-3e856a340ecc?version=1.2770",
+    "resourceSourceUri": "/channeloriginlocators/fa8978c4-0e74-4d65-b7bb-3e856a340ecc?version=1.2769"
+  },
+  "id": "fa8978c4-0e74-4d65-b7bb-3e856a340ecc",
+  "legacy_partner_account_id": "test123",
+  "partner_account_id": "c3900b18-15f8-4d7a-a324-083d4891b155",
+  "partner_account_id_resource_uri": "/partners/c3900b18-15f8-4d7a-a324-083d4891b155",
+  "legacy_business_segment_id": "398232",
+  "business_segment_id": "33e21995-2790-4b40-a2db-ffc69986ab26",
+  "business_segment_id_resource_uri": "/partners/c3900b18-15f8-4d7a-a324-083d4891b155/businesssegments/33e21995-2790-4b40-a2db-ffc69986ab26",
+  "legacyChannelId": "test123-398232-c3-003",
+  "channel_origin_id": "787f05f4-4aab-4685-8bda-ac2f0b9aa75b",
+  "channel_origin_id_resource_uri": "/partners/c3900b18-15f8-4d7a-a324-083d4891b155/businesssegments/33e21995-2790-4b40-a2db-ffc69986ab26/channelorigins/787f05f4-4aab-4685-8bda-ac2f0b9aa75b",
+  "legacy_channel_id": "c3",
+  "channel_id": "a482f39d-e22b-4ea5-800d-731f70af2899",
+  "channel_id_resource_uri": "/channels/a482f39d-e22b-4ea5-800d-731f70af2899"
+}

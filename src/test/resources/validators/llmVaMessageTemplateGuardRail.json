@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "id": "730ee095-8f01-44d2-a498-4fb1905a08cf",
+    "resourceType": "llmvamessagetemplate",
+    "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAMessageTemplate",
+    "version": "1.4",
+    "container": {
+      "resourceUri": "/"
+    },
+    "audit": {
+      "createdOn": "2023-09-22T11:42:58.575463Z",
+      "createdBy": "SERVICE : 2031ec1lcs5182vkd7hko5aael",
+      "updatedOn": "2023-11-08T08:21:33.542393Z",
+      "updatedBy": "SERVICE : 2031ec1lcs5182vkd7hko5aael"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/llmvamessagetemplates/730ee095-8f01-44d2-a498-4fb1905a08cf?version=1.4",
+    "hierarchicalKey": "",
+    "resourceSourceUri": "/llmvamessagetemplates/730ee095-8f01-44d2-a498-4fb1905a08cf?version=1.3"
+  },
+  "id": "730ee095-8f01-44d2-a498-4fb1905a08cf",
+  "altId": "LLM_VA_GUARDRAIL_HANDLING",
+  "type": "MESSAGE",
+  "text": "Sorry I’m not able to tell you about other companies, but if you have another trip-planning question, I’d be happy to help."
+}

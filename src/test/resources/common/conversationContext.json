@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "id": "bc1da2c4-efe4-4e85-9ce1-84a505ed5e18",
+    "resourceType": "conversationcontext",
+    "schemaUri": "/schemas/com.expedia.llm.v1.ConversationContext",
+    "container": {
+      "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/conversations/963bb75f-b482-4542-ac45-c510f3a978d0/"
+    },
+    "audit": {
+      "createdOn": "2024-01-15T05:14:45.933824Z",
+      "createdBy": "SERVICE : 1ogkcumqp1vcvue1g0u8bqlpmo",
+      "updatedOn": "2024-01-15T06:31:25.098717Z",
+      "updatedBy": "SERVICE : 1ogkcumqp1vcvue1g0u8bqlpmo"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/conversations/963bb75f-b482-4542-ac45-c510f3a978d0/conversationcontexts/bc1da2c4-efe4-4e85-9ce1-84a505ed5e18"
+  },
+  "id": "bc1da2c4-efe4-4e85-9ce1-84a505ed5e18",
+  "messages": [
+    {
+      "name": "null",
+      "role": "system",
+      "content": "/llmvamessagetemplates/LLM_TRAVELER_VA_SYSTEM_PROMPT"
+    },
+    {
+      "name": "null",
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?"
+    },
+    {
+      "name": "null",
+      "role": "user",
+      "content": "can you help me in deciding what is better Goa or Shimla?"
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "Both Goa and Shimla are popular tourist destinations in India, but they offer different experiences. Here are some highlights of each destination:\n\nGoa:\n- Known for its beautiful beaches and vibrant nightlife\n- Offers a mix of relaxation, water sports, and beach parties\n- Rich in Portuguese heritage and architecture\n- Famous for its seafood and beach shacks\n\nShimla:\n- A hill station nestled in the Himalayas\n- Offers stunning mountain views and a cool climate\n- Known for its colonial architecture and British charm\n- Offers opportunities for trekking, skiing, and exploring nature\n\nUltimately, the choice between Goa and Shimla depends on your preferences. If you prefer beaches, water sports, and a lively atmosphere, Goa may be the better choice. If you enjoy mountains, cooler weather, and a serene environment, Shimla may be more suitable. Let me know if you need more information or if there's anything else I can assist you with!"
+    },
+    {
+      "name": "null",
+      "role": "user",
+      "content": "Ohh is Goa good to visit in May?"
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "May is not the ideal time to visit Goa as it falls during the summer season. The weather in Goa during May is hot and humid, with temperatures ranging from 30 to 35 degrees Celsius (86 to 95 degrees Fahrenheit). Additionally, May is the beginning of the monsoon season in Goa, so there is a possibility of heavy rainfall. \n\nIf you prefer cooler weather and want to enjoy outdoor activities and the beaches, it is recommended to visit Goa during the winter months (November to February) when the weather is pleasant. However, if you don't mind the heat and are looking for a budget-friendly trip, you can still visit Goa in May. Just be prepared for the hot weather and occasional rain showers."
+    },
+    {
+      "name": "null",
+      "role": "user",
+      "content": "Is Shimla good to visit in May?"
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "Yes, Shimla is a good destination to visit in May. May marks the beginning of summer in Shimla, and the weather is pleasant with temperatures ranging from 15 to 25 degrees Celsius (59 to 77 degrees Fahrenheit). It is a great time to escape the heat of the plains and enjoy the cool mountain climate of Shimla.\n\nIn May, you can explore the scenic beauty of Shimla, go for nature walks, visit the famous Mall Road, and enjoy outdoor activities like trekking and horse riding. The weather is ideal for exploring the surrounding areas and enjoying the breathtaking views of the Himalayas.\n\nJust keep in mind that May is a popular tourist season in Shimla, so it can get crowded. It is advisable to make your travel and accommodation arrangements in advance."
+    },
+    {
+      "name": "null",
+      "role": "user",
+      "content": "Can you show me flights from Delhi to Shimla in May?"
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "",
+      "functionCall": {
+        "name": "flight_search",
+        "arguments": "{\n  \"origin\": \"DEL\",\n  \"destination\": \"SLV\",\n  \"departure_date\": \"2024-05-01\",\n  \"return_date\": \"2024-05-31\"\n}"
+      }
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "Sorry, an unexpected error occurred. Please try entering your message again."
+    },
+    {
+      "name": "null",
+      "role": "user",
+      "content": "Ohh show me hotels in Shimla"
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "",
+      "functionCall": {
+        "name": "hotel_or_activity_recommendations",
+        "arguments": "{}"
+      }
+    },
+    {
+      "name": "hotel_or_activity_recommendations",
+      "role": "function",
+      "content": "{\"destination\":\"Shimla\",\"country\":\"India\",\"hotels_list\":[{\"name\":\"Wildflower Hall, An Oberoi Resort\",\"description\":\"A luxurious mountain resort offering stunning views and top-notch amenities\"},{\"name\":\"The Oberoi Cecil\",\"description\":\"A heritage hotel with colonial charm and modern comforts, located in the heart of Shimla\"},{\"name\":\"Radisson Hotel Shimla\",\"description\":\"A contemporary hotel with panoramic views of the Himalayas and comfortable accommodations\"},{\"name\":\"Clarkes Hotel, Shimla\",\"description\":\"A historic hotel known for its heritage architecture and warm hospitality\"},{\"name\":\"The Ridge, Shimla\",\"description\":\"A boutique hotel offering a blend of traditional and modern design, with a central location\"}]}"
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "Here are some hotel recommendations in Shimla:\n\n1. Wildflower Hall, An Oberoi Resort: A luxurious mountain resort offering stunning views and top-notch amenities.\n2. The Oberoi Cecil: A heritage hotel with colonial charm and modern comforts, located in the heart of Shimla.\n3. Radisson Hotel Shimla: A contemporary hotel with panoramic views of the Himalayas and comfortable accommodations.\n4. Clarkes Hotel, Shimla: A historic hotel known for its heritage architecture and warm hospitality.\n5. The Ridge, Shimla: A boutique hotel offering a blend of traditional and modern design, with a central location.\n\nPlease let me know if you need more information or if there's anything else I can assist you with!"
+    },
+    {
+      "name": "null",
+      "role": "user",
+      "content": "flights from delhi to shimla"
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "",
+      "functionCall": {
+        "name": "flight_search",
+        "arguments": "{\n  \"origin\": \"DEL\",\n  \"destination\": \"SLV\"\n}"
+      }
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "Sorry, an unexpected error occurred. Please try entering your message again."
+    },
+    {
+      "name": "null",
+      "role": "user",
+      "content": "average flight price of route from delhi to shimla"
+    },
+    {
+      "name": "null",
+      "role": "assistant",
+      "content": "",
+      "functionCall": {
+        "name": "flight_price_forecast",
+        "arguments": "{\n  \"origin\": \"DEL\",\n  \"destination\": \"SLV\"\n}"
+      }
+    }
+  ],
+  "toolExecutionDetails": []
+}

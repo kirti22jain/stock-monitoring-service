@@ -1,0 +1,125 @@
+{
+  "type": "com.expedia.cpce.conversation.model.v2.MessageOut",
+  "recipients": [
+    {
+      "participantId": "fda5b5fd-0c62-48b3-b7ad-11ef1eaf0989",
+      "user": {
+        "emailAddress": null,
+        "phoneNumber": null,
+        "userName": null,
+        "firstName": null,
+        "lastName": null,
+        "preferredName": "Virtual Agent",
+        "avatarUrl": "https://s3-us-west-1.amazonaws.com/csp.assets/icons/Expedia_Chat_Logo.svg",
+        "role": "null",
+        "languageId": null,
+        "userIds": {},
+        "attributes": {},
+        "supportedChannels": [],
+        "context": null
+      },
+      "channelId": "llmVA"
+    }
+  ],
+  "conversation": null,
+  "participant": null,
+  "message": {
+    "conversationId": "cc37ebad-9fc0-411b-9723-9f13270b36a2",
+    "messageId": "65583687-914e-4a0a-8289-d4c41b8617d4",
+    "partnerId": "33bea4ef-93c2-4166-b297-2b5e07b35235",
+    "author": "e3fa9927-1683-435f-ad7b-34c246ded198",
+    "authorChannel": "facebook",
+    "data": {
+      "text": "Search Flights",
+      "actions": null,
+      "attachments": null,
+      "layout": null,
+      "items": null,
+      "mediaType": null,
+      "payload": null,
+      "email": null,
+      "voice": null,
+      "richCard": null,
+      "intent": null,
+      "params": null,
+      "messageType": "TEXT",
+      "version": null,
+      "cards": null,
+      "flags": null,
+      "subIntent": null
+    },
+    "meta": {
+      "sentDateTime": "2023-10-28T14:14:09.872Z",
+      "userAgent": null,
+      "ipAddress": null,
+      "currentPageUrl": null,
+      "currentPageTitle": null,
+      "receivedDateTime": "2023-10-28T14:14:10.139950Z"
+    },
+    "mentionedParticipants": null,
+    "destination": null,
+    "attributes": {
+      "pifTest": "true",
+      "isTranslated": "false"
+    },
+    "referenceMessageId": null
+  },
+  "event": null,
+  "typingIndicator": null,
+  "messageAuthor": {
+    "conversationId": "cc37ebad-9fc0-411b-9723-9f13270b36a2",
+    "participantId": "e3fa9927-1683-435f-ad7b-34c246ded198",
+    "user": {
+      "emailAddress": null,
+      "phoneNumber": null,
+      "userName": null,
+      "firstName": null,
+      "lastName": null,
+      "preferredName": null,
+      "avatarUrl": null,
+      "role": "/roleassignments/d2d3ea56-ff4a-42eb-b4af-2a5eb5651433",
+      "languageId": null,
+      "userIds": {},
+      "attributes": {
+        "channel_origin_id": "419de199-89be-4717-a307-775c9ab3b7da",
+        "sender_name": "Preethu",
+        "kafka_consumer_group": "fb_adapter_int",
+        "client_id": "1691044907816987",
+        "sender_id": "******"
+      },
+      "supportedChannels": [],
+      "context": null
+    },
+    "channels": [
+      {
+        "channelId": "facebook",
+        "channelState": "JOINED",
+        "active": true,
+        "channelFilters": null
+      }
+    ],
+    "initiator": true
+  },
+  "conversationData": {
+    "languageId": "en_US",
+    "channelOriginId": "419de199-89be-4717-a307-775c9ab3b7da",
+    "businessSegmentId": "a0c41f1d-1309-427a-a1eb-746dbb6d9cba",
+    "attributes": {
+      "vaDestinationChannelId": "test_e2e_int_small",
+      "country": "en_us",
+      "pifTest": "true",
+      "pos": "jp",
+      "agentLoginName": "AutomatedTestAgent",
+      "skipWelcome": "true",
+      "site_id": "28",
+      "channelOriginId": "419de199-89be-4717-a307-775c9ab3b7da",
+      "channel_id": "facebook",
+      "brand": "expedia",
+      "stubId": "bexViewBookingUnauthenticatedUser",
+      "username": "AutomatedTestAgent",
+      "localVaHostName": "EXPYKD6Q7VP41",
+      "localVaWebhookUrl": "https://4b26-216-251-118-195.ngrok-free.app/v1/orchestrate"
+    },
+    "relayMode": null
+  }
+}

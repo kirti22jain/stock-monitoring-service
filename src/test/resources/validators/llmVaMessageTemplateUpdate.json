@@ -1,0 +1,48 @@
+{
+  "current": {
+    "metadata": {
+      "id": "c5614142-1f40-4e15-bb1d-12663daf4a5f",
+      "resourceType": "llmvamessagetemplate",
+      "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAMessageTemplate",
+      "version": "1.0",
+      "container": {
+        "resourceUri": "/"
+      },
+      "audit": {
+        "createdOn": "2023-09-28T11:33:34.415109Z",
+        "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+        "updatedOn": "2023-09-28T11:33:34.415115Z",
+        "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/llmvamessagetemplates/c5614142-1f40-4e15-bb1d-12663daf4a5f?version=1.0"
+    },
+    "id": "c5614142-1f40-4e15-bb1d-12663daf4a5f",
+    "altId": "LLM_TRAVELER_VA_DEFAULT_ERROR_MESSAGE",
+    "type": "MESSAGE",
+    "text": "Sorry, I was not able to complete that request. Please try again later."
+  },
+  "proposed": {
+    "metadata": {
+      "id": "c5614142-1f40-4e15-bb1d-12663daf4a5f",
+      "resourceType": "llmvamessagetemplate",
+      "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAMessageTemplate",
+      "version": "1.0",
+      "container": {
+        "resourceUri": "/"
+      },
+      "audit": {
+        "createdOn": "2023-09-28T11:33:34.415109Z",
+        "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+        "updatedOn": "2023-09-28T11:33:34.415115Z",
+        "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/llmvamessagetemplates/c5614142-1f40-4e15-bb1d-12663daf4a5f?version=1.0"
+    },
+    "id": "c5614142-1f40-4e15-bb1d-12663daf4a5f",
+    "altId": "LLM_TRAVELER_VA_DEFAULT_ERROR_MESSAGE",
+    "type": "MESSAGE",
+    "text": "Sorry, I was not able to complete that request. Please try again later."
+  }
+}

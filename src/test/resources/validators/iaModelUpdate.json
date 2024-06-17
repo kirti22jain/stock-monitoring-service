@@ -1,0 +1,64 @@
+{
+  "current": {
+    "metadata": {
+      "id": "e9b3bada-334e-4a84-a770-0530ebe33355",
+      "resourceType": "iaModel",
+      "schemaUri": "/schemas/com.expedia.ia.v1.Model",
+      "version": "1.4",
+      "container": {
+        "resourceUri": "/"
+      },
+      "audit": {
+        "createdOn": "2023-10-10T07:38:42.734188Z",
+        "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+        "updatedOn": "2023-10-16T18:35:18.937882Z",
+        "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/iaModels/e9b3bada-334e-4a84-a770-0530ebe33355?version=1.4",
+      "hierarchicalKey": "",
+      "resourceSourceUri": "/iaModels/e9b3bada-334e-4a84-a770-0530ebe33355?version=1.3"
+    },
+    "id": "e9b3bada-334e-4a84-a770-0530ebe33355",
+    "altId": "CHATGPT_35_GENAI_PROXY_16K",
+    "modelVersion": "gpt-3.5-turbo-16k-0613",
+    "modelUrl": "https://generative-ai-proxy-preprod.rcp.us-east-1.data.test.exp-aws.net/v1/proxy/openai/v1/chat/completions",
+    "timeoutInMilliSeconds": 30000,
+    "maxRetries": 2,
+    "authenticationConfigUri": "/authenticationConfigs/13b37758-00b3-4b9b-b82a-a90becbdc38c",
+    "modelSettings": {
+      "temperature": 0.0
+    }
+  },
+  "proposed": {
+    "metadata": {
+      "id": "e9b3bada-334e-4a84-a770-0530ebe33355",
+      "resourceType": "iaModel",
+      "schemaUri": "/schemas/com.expedia.ia.v1.Model",
+      "version": "1.4",
+      "container": {
+        "resourceUri": "/"
+      },
+      "audit": {
+        "createdOn": "2023-10-10T07:38:42.734188Z",
+        "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+        "updatedOn": "2023-10-16T18:35:18.937882Z",
+        "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+      },
+      "state": "ACTIVE",
+      "resourceUri": "/iaModels/e9b3bada-334e-4a84-a770-0530ebe33355?version=1.4",
+      "hierarchicalKey": "",
+      "resourceSourceUri": "/iaModels/e9b3bada-334e-4a84-a770-0530ebe33355?version=1.3"
+    },
+    "id": "e9b3bada-334e-4a84-a770-0530ebe33355",
+    "altId": "CHATGPT_35_GENAI_PROXY_16K",
+    "modelVersion": "gpt-3.5-turbo-16k-0613",
+    "modelUrl": "https://generative-ai-proxy-preprod.rcp.us-east-1.data.test.exp-aws.net/v1/proxy/openai/v1/chat/completions",
+    "timeoutInMilliSeconds": 30000,
+    "maxRetries": 2,
+    "authenticationConfigUri": "/authenticationConfigs/13b37758-00b3-4b9b-b82a-a90becbdc38c",
+    "modelSettings": {
+      "temperature": 0.0
+    }
+  }
+}

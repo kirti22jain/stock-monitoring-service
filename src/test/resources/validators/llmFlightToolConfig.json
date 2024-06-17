@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ed368894-be3b-45f4-81b5-44f1f133f5e8",
+    "resourceType": "llmvatoolconfig",
+    "schemaUri": "/schemas/com.expedia.llm.v1.LLMVAToolConfig",
+    "version": "1.0",
+    "container": {
+      "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/businesssegments/a0c41f1d-1309-427a-a1eb-746dbb6d9cba/channelorigins/d6dc2798-258f-4bf9-9ebe-1a86cc832cbf/"
+    },
+    "audit": {
+      "createdOn": "2024-01-10T22:40:55.550504Z",
+      "createdBy": "SERVICE : 2031ec1lcs5182vkd7hko5aael",
+      "updatedOn": "2024-01-10T22:40:55.550508Z",
+      "updatedBy": "SERVICE : 2031ec1lcs5182vkd7hko5aael"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/partners/33bea4ef-93c2-4166-b297-2b5e07b35235/businesssegments/a0c41f1d-1309-427a-a1eb-746dbb6d9cba/channelorigins/d6dc2798-258f-4bf9-9ebe-1a86cc832cbf/llmvatoolconfigs/ed368894-be3b-45f4-81b5-44f1f133f5e8?version=1.0"
+  },
+  "id": "ed368894-be3b-45f4-81b5-44f1f133f5e8",
+  "altId": "flight_search",
+  "team": "icemlgurgaon@expediagroup.com",
+  "description": "Search or recommends flights available in Expedia",
+  "type": "API",
+  "apiConfigUri": "/llmvaapiconfigs/3f5a8279-954d-4414-ae07-4dbb7383b1de",
+  "errorHandlingUri": "/llmvamessagetemplates/LLM_TRAVELER_VA_PROXY_FAILURE_ERROR_MESSAGE"
+}

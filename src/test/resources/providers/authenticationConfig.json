@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "id": "82dca026-a70d-4edf-a6b3-a857bd6ff8e8",
+    "resourceType": "authenticationconfig",
+    "schemaUri": "/schemas/cp.AuthenticationConfig_V1",
+    "version": "1.0",
+    "container": {
+      "resourceUri": "/"
+    },
+    "audit": {
+      "createdOn": "2023-09-28T11:20:01.671959Z",
+      "createdBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8",
+      "updatedOn": "2023-09-28T11:20:01.671965Z",
+      "updatedBy": "SERVICE : 4qirgt3avl1tan9rsner752tb8"
+    },
+    "state": "ACTIVE",
+    "resourceUri": "/authenticationconfigs/82dca026-a70d-4edf-a6b3-a857bd6ff8e8?version=1.0"
+  },
+  "id": "82dca026-a70d-4edf-a6b3-a857bd6ff8e8",
+  "name": "FLIGHT_SEARCH_API_KEY",
+  "apiKey": {
+    "key": "x-api-key",
+    "value": "d306231c7b6c14fc4e21c88eb71b064d785d83b2b595504929799b072a72e292eabfa9d715e6f06e0576d39e17ee740c"
+  }
+}
